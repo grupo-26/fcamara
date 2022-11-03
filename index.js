@@ -1,30 +1,44 @@
 const express = require("express");
 const app = express();
 const cors = require("cors")
-const bodyParser = require("body-parser")
-const pgp = require("pg-promise");
-const db = pgp("postgres://<username>:<password>@<host>:<port>/database")
+// const bodyParser = require("body-parser")
 const path = require("path");
 const userRouter = require("./routes/users");
 
-const server = {
-  port: 4040,
-};
+var corsOptions = {
+  origin: "http://localhost:8081"
+}
 
-app.use(cors());
-app.use(bodyParser.json());
+app.use(cors(corsOptions));
 
+// parse requests of content-type - application/json
+app.use(express.json());
+
+// parse requests of content-type - application/x-www-form-urlencoded
+app.use(express.urlencoded({ extended: true }));
+
+const db = require("./models")
+
+db.sequelize.sync()
+  .then(() => {
+    console.log("Synced DB");
+  })
+  .catch((err) => {
+    console.log("Failed to sync DB. " + err.message);
+  })
+
+// Definindo pasta de views, a view engine e a pasta de arquivos estáticos
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/", userRouter);
 
-app.get("/", (req, res) => {
-  // res.send("Olá, FCamara!");
+app.get("/", (_, res) => {
   res.render("home");
 })
 
-app.listen(server.port, () => {
-  console.log("Hospedado na porta 8000 - Acesse: localhost:8000")
+const PORT = process.env.PORT || 8080;
+app.listen(PORT, () => {
+  console.log(`Servindo na porta: ${PORT}`);
 })

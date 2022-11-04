@@ -3,7 +3,6 @@ const app = express();
 const cors = require("cors")
 // const bodyParser = require("body-parser")
 const path = require("path");
-const userRouter = require("./routes/users");
 
 var corsOptions = {
   origin: "http://localhost:8081"
@@ -32,7 +31,7 @@ app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 app.use(express.static(path.join(__dirname, "public")));
 
-app.use("/", userRouter);
+const userRouter = require("./routes/user.route.js")(app);
 
 app.get("/", (_, res) => {
   res.render("home");

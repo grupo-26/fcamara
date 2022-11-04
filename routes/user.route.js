@@ -1,13 +1,13 @@
-module.exports = (app) => {
-  const users = require("../controllers/user.controller.js");
+const express = require("express");
+const router = express.Router();
 
-  var router = require("express").Router();
+router.get("/login", (_, res) => {
+  res.render("login");
+})
 
-  router.post("/create", users.create);
+router.get("/register", (_, res) => {
+  res.render("register");
+})
 
-  router.get("/login", (_, res) => {
-    res.render("login");
-  })
 
-  app.use("/user", router);
-}
+module.exports = router;

@@ -1,5 +1,53 @@
+.login {
+  background-image: linear-gradient(90deg, 
+  rgba(255,255,255,0.7) 0%, 
+  rgba(249,115,22,0.7) 100%),
+  url('../images/bg-login.jpg');
+  @apply bg-center bg-cover;
 
+  @apply flex flex-row justify-center items-center;
 
-.form-register {
-  padding: 2rem 5rem;
+  @apply w-full h-screen;
+}
+
+.login__form{
+  @apply block;
+
+  @apply max-w-2xl;
+
+  @apply bg-white/50; 
+
+  /* Internal Positioning */
+  @apply flex flex-col;
+  @apply py-6 px-5;
+  @apply text-center;
+
+  /* Shadows */
+  @apply drop-shadow-md;
+
+  /* Borders */
+  @apply rounded;
+  
+  font-family: 'Lato', sans-serif;
+}
+
+.login__label {
+  @apply uppercase;
+  @apply mb-2;
+  @apply block;
+}
+
+.login__input {
+  @apply py-2 px-5;
+  @apply bg-white/75;
+
+  @apply rounded;
+}
+
+.login__input:not(:last-child) {
+  @apply mb-5;
+}
+
+.login__input:focus-visible {
+  @apply outline-orange-500 outline; 
 }

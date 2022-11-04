@@ -7,6 +7,12 @@ body {
     background-color: rgb(158, 158, 248);
 }
 
+.test-2 {
+    font-size: 2rem;
+    --tw-text-opacity: 1;
+    color: rgb(30 58 138 / var(--tw-text-opacity));
+}
+
 /*
 ! tailwindcss v3.2.1 | MIT License | https://tailwindcss.com
 */
@@ -497,3 +503,4 @@ video {
 .underline {
     text-decoration-line: underline;
 }
+

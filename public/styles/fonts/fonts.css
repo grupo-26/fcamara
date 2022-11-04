@@ -6,3 +6,9 @@
 body {
     background-color: rgb(158, 158, 248);
 }
+
+.test-2 {
+    font-size: 2rem;
+
+    @apply text-blue-900;
+}

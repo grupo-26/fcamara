@@ -39,7 +39,22 @@ exports.findAll = (req, res) => {
 
 // Encontra um usuário só baseado numa ID??
 exports.findOne = (req, res) => {
+  const email = req.body.email;
+  const password = req.body.password;
 
+  User.findOne({
+    where: { email: email }
+  })
+    .then((data) => {
+      if (data.email === email && data.password === password) {
+        res.send("Logged In");
+      }
+    })
+    .catch((err) => {
+      res.status(500).send({
+        message: err.message || "Email/Senha Inválidos"
+      })
+    });
 };
 
 // Atualiza um usuário pelo ID enviado no req

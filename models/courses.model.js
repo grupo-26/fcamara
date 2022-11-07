@@ -1,15 +1,28 @@
-module.exports = (sequelize, Sequelize) => {
-  const Course = sequelize.define("course", {
+const { Model, DataTypes } = require("sequelize");
+const Student = require("./student.model.js");
+const Lesson = require("./lesson.model.js");
+
+module.exports = (sequelize) => {
+
+  class Course extends Model { }
+
+  Course.init({
     title: {
-      type: Sequelize.STRING
+      type: DataTypes.STRING,
+      allowNull: false,
+      unique: false,
     },
-    description: {
-      type: Sequelize.STRING
-    },
-    published: {
-      type: Sequelize.BOOLEAN
+    stack: {
+      type: DataTypes.ARRAY(DataTypes.STRING),
+      allowNull: true,
+      unique: false
     }
-  });
+  }, {
+    sequelize,
+    modelName: "Course"
+  })
+
+  Course.Lessons = Course.hasMany(Lesson);
 
   return Course;
 }

@@ -1,23 +1,27 @@
 const db = require("../models");
 const User = db.users;
 const Op = db.Sequelize.Op;
+const bcrypt = require("bcrypt");
 
-// Cria um novo usuário 
-exports.create = (req, res) => {
+// registra um novo usuário 
+exports.register = async (req, res) => {
+  const { firstName, lastName, email, password } = req.body;
+
   // Validar dados
-  console.log(req.body);
   if (!req.body.email || !req.body.password) {
     res.status(400).send({
       message: "Email/Senha inválidos"
     });
   }
 
+  const hashedPassword = await bcrypt.hash(password, 12);
+
   // Criar usuário
   const user = {
-    firstName: req.body.firstName,
-    lastName: req.body.lastName,
-    email: req.body.email,
-    password: req.body.password
+    firstName: firstName,
+    lastName: lastName,
+    email: email,
+    password: hashedPassword
   }
 
   // Salvar usuário no BD 
@@ -32,22 +36,18 @@ exports.create = (req, res) => {
     });
 };
 
-// Encontra todos os usuários no BD
-exports.findAll = (req, res) => {
-
-};
-
-// Encontra um usuário só baseado numa ID??
-exports.findOne = (req, res) => {
-  const email = req.body.email;
-  const password = req.body.password;
+exports.login = (req, res) => {
+  const { email, password } = req.body;
 
   User.findOne({
     where: { email: email }
   })
-    .then((data) => {
-      if (data.email === email && data.password === password) {
-        res.send("Logged In");
+    .then(async (data) => {
+      const validPassword = await bcrypt.compare(password, data.password);
+      if (validPassword) {
+        res.send("UHU, você está logado!");
+      } else {
+        res.send("Usuário/Senha inválidos");
       }
     })
     .catch((err) => {

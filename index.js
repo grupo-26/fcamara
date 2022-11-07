@@ -3,10 +3,18 @@ const app = express();
 const cors = require("cors")
 // const bodyParser = require("body-parser")
 const path = require("path");
+const session = require("express-session");
+const sessionOptions = {
+  secret: "mvp",
+  resave: false,
+  saveUnitialized: false
+}
 
 var corsOptions = {
   origin: "http://localhost:8081"
 }
+
+app.use(session(sessionOptions));
 
 app.use(cors(corsOptions));
 
@@ -26,16 +34,7 @@ db.sequelize.sync()
     console.log("Failed to sync DB. " + err.message);
   })
 
-// Definindo pasta de views, a view engine e a pasta de arquivos estáticos
-app.set("views", path.join(__dirname, "views"));
-app.set("view engine", "ejs");
-app.use(express.static(path.join(__dirname, "public")));
-
 const userRouter = require("./routes/user.route.js")(app);
-
-app.get("/", (_, res) => {
-  res.render("home");
-})
 
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {

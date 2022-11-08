@@ -17,7 +17,12 @@ module.exports = (sequelize) => {
     videoLink: {
       data: DataTypes.STRING,
       allowNull: true
-    }
+    },
+    pdfLink: {
+      data: DataTypes.STRING,
+      allowNull: true
+    },
+    
   }, {
     sequelize,
     modelName: "Lesson"

@@ -21,6 +21,28 @@ module.exports = (sequelize) => {
     password: {
       type: DataTypes.STRING,
       allowNull: false,
+    },
+    admin: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+    },
+    level: {
+      type: DataTypes.INTEGER,
+      allowNull: false 
+    },
+    experience: {
+      type: DataTypes.FLOAT,
+      allowNull: false
+    },
+    badges: {
+      type: DataTypes.ARRAY(DataTypes.STRING),
+      allowNull: true,
+      unique: false
+    },
+    courses: {
+      type: DataTypes.ARRAY(DataTypes.STRING),
+      allowNull: true,
+      unique: false
     }
   },
     {

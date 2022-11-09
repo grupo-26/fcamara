@@ -1,5 +1,5 @@
 const { Model, DataTypes } = require("sequelize");
-const Lesson = require("./lesson.model.js");
+//const Lesson = require("./lesson.model.js");
 
 module.exports = (sequelize) => {
 
@@ -21,7 +21,7 @@ module.exports = (sequelize) => {
     modelName: "Course"
   })
 
-  Course.Lessons = Course.hasMany(Lesson);
+  //Course.Lessons = Course.hasMany(Lesson);
 
   return Course;
 }

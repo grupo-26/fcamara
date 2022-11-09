@@ -7,7 +7,8 @@ exports.create = (req, res) => {
   if (!req.body.title) {
     res.status(400).send({
       message: "O curso precisa de um título"
-    })
+    });
+    return;
   }
 
   const course = {
@@ -43,6 +44,7 @@ exports.findAll = (req, res) => {
     });
 };
 
+/*
 // Encontra um curso só baseado numa ID
 exports.findOne = (req, res) => {
 
@@ -67,3 +69,4 @@ exports.deleteAll = (req, res) => {
 exports.findAllPublished = (req, res) => {
 
 };
+*/

@@ -24,7 +24,7 @@ app.use(express.json());
 // parse requests of content-type - application/x-www-form-urlencoded
 app.use(express.urlencoded({ extended: true }));
 
-const db = require("./models")
+const db = require("./models");
 
 db.sequelize.sync()
   .then(() => {
@@ -34,7 +34,9 @@ db.sequelize.sync()
     console.log("Failed to sync DB. " + err.message);
   })
 
-const userRouter = require("./routes/user.route.js")(app);
+//const userRouter = require("./routes/user.route.js")(app);
+
+require("./routes/course.route.js")(app);
 
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {

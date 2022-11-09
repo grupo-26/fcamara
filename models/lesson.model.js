@@ -1,5 +1,5 @@
 const { DataTypes } = require("sequelize");
-const Course = require("./class.model.js");
+const Course = require("./courses.model.js");
 
 module.exports = (sequelize) => {
 

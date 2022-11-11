@@ -12,7 +12,7 @@ module.exports = (sequelize) => {
       unique: false,
     },
     stack: {
-      type: DataTypes.ARRAY(DataTypes.STRING),
+      type: DataTypes.STRING,
       allowNull: true,
       unique: false
     }

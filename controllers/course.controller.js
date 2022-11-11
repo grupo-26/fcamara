@@ -13,7 +13,7 @@ exports.create = (req, res) => {
 
   const course = {
     title: req.body.title,
-    description: req.body.description,
+    stack: req.body.stack,
     published: req.body.published ? req.body.published : false
   }
 

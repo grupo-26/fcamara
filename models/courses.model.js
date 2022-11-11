@@ -21,7 +21,5 @@ module.exports = (sequelize) => {
     modelName: "Course"
   })
 
-  //Course.Lessons = Course.hasMany(Lesson);
-
   return Course;
 }

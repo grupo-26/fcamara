@@ -10,13 +10,9 @@ const sessionOptions = {
   saveUnitialized: false
 }
 
-var corsOptions = {
-  origin: "http://localhost:8081"
-}
-
 app.use(session(sessionOptions));
 
-app.use(cors(corsOptions));
+app.use(cors());
 
 // parse requests of content-type - application/json
 app.use(express.json());
@@ -37,6 +33,7 @@ db.sequelize.sync()
 //const userRouter = require("./routes/user.route.js")(app);
 
 require("./routes/course.route.js")(app);
+require("./routes/user.route.js")(app);
 
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {

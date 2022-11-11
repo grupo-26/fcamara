@@ -7,6 +7,7 @@ const bcrypt = require("bcrypt");
 exports.register = async (req, res) => {
   const { firstName, lastName, email, password } = req.body;
 
+
   // Validar dados
   if (!req.body.email || !req.body.password) {
     res.status(400).send({
@@ -21,7 +22,10 @@ exports.register = async (req, res) => {
     firstName: firstName,
     lastName: lastName,
     email: email,
-    password: hashedPassword
+    password: hashedPassword,
+    isAdmin: false,
+    experience: 0,
+    level: 1
   }
 
   // Salvar usuário no BD 
@@ -38,6 +42,8 @@ exports.register = async (req, res) => {
 
 exports.login = (req, res) => {
   const { email, password } = req.body;
+
+  console.log(req.body);
 
   User.findOne({
     where: { email: email }

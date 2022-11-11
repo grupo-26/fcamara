@@ -22,13 +22,13 @@ module.exports = (sequelize) => {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    admin: {
+    isAdmin: {
       type: DataTypes.BOOLEAN,
       allowNull: false,
     },
     level: {
       type: DataTypes.INTEGER,
-      allowNull: false 
+      allowNull: false
     },
     experience: {
       type: DataTypes.FLOAT,

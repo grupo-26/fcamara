@@ -1,34 +1,43 @@
-const { DataTypes } = require("sequelize");
-const Course = require("./courses.model.js");
+const { Model, DataTypes } = require("sequelize");
 
 module.exports = (sequelize) => {
 
-  class Lesson extends Model { }
+    class Lesson extends Model { }
 
-  Lesson.init({
-    title: {
-      data: DataTypes.STRING,
-      allowNull: false,
-    },
-    content: {
-      data: DataTypes.TEXT,
-      allowNull: true,
-    },
-    videoLink: {
-      data: DataTypes.STRING,
-      allowNull: true
-    },
-    pdfLink: {
-      data: DataTypes.STRING,
-      allowNull: true
-    },
-    
-  }, {
-    sequelize,
-    modelName: "Lesson"
-  })
+    Lesson.init({
+        title: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            unique: false,
+        },
+        tipo: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
+        modsigla: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
+        time: {
+            type: DataTypes.STRING,
+            allowNull: true,
+        },
+        linkvideo: {
+            type: DataTypes.STRING,
+            allowNull: true,
+        },
+        linkpdf: {
+            type: DataTypes.STRING,
+            allowNull: true,
+        },
+        pts: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+        },
+    }, {
+        sequelize,
+        modelName: "Lesson"
+    })
 
-  Lesson.Course = Lesson.belongsTo(Course);
-
-  return Lesson;
+    return Lesson;
 }

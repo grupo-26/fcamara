@@ -21,6 +21,7 @@ db.sequelize = sequelize;
 
 db.courses = require("./courses.model.js")(sequelize, Sequelize);
 db.coursemodule = require("./coursemodule.model.js")(sequelize, Sequelize);
+db.lesson = require("./lesson.model")(sequelize, Sequelize);
 db.users = require("./user.model.js")(sequelize, Sequelize);
 
 module.exports = db;

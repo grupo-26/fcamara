@@ -34,6 +34,7 @@ db.sequelize.sync()
 
 require("./routes/course.route.js")(app);
 require("./routes/user.route.js")(app);
+require("./routes/coursemodule.route.js")(app);
 
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {

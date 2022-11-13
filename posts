@@ -1,0 +1,67 @@
+=== Trilhas ===
+
+{
+    "title":"UX/UI Design",
+    "stack":"ux"
+},
+
+{
+    "title":"Desenvolvimento Full Stack",
+    "stack":"dfs"
+},
+
+====================================
+
+=== Modules ===
+
+{
+    "title":"Fundamentos UX",
+    "stack":"ux",
+    "modsigla":"fundUX"
+}
+
+{
+    "title":"Fundamentos Ui",
+    "stack":"ux",
+    "modsigla":"fundUi"
+}
+
+{
+    "title":"Circulo Cromático",
+    "stack":"ux",
+    "modsigla":"croma"
+}
+
+{
+    "title":"Pesquisa de campo",
+    "stack":"ux",
+    "modsigla":"pesqcampo"
+}
+
+
+--
+
+{
+    "title":"Fundamentos programação",
+    "stack":"dfs",    
+    "modsigla":"fundProg"
+}
+
+{
+    "title":"Introdução ao HTTP",
+    "stack":"dfs",    
+    "modsigla":"introhttp"
+}
+
+{
+    "title":"Algoritmos 1",
+    "stack":"dfs",    
+    "modsigla":"alg1"
+}
+
+{
+    "title":"Intro BD",
+    "stack":"dfs",    
+    "modsigla":"introbd"
+}
+

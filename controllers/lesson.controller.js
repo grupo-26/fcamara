@@ -19,6 +19,7 @@ exports.create = (req, res) => {
     linkvideo: req.body.linkvideo,
     linkpdf: req.body.linkpdf,
     pts: req.body.pts,
+    idconclusao: req.body.idconclusao,
     published: req.body.published ? req.body.published : false
   }
 

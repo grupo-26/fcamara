@@ -3,12 +3,12 @@
 {
     "title":"UX/UI Design",
     "stack":"ux"
-},
+}
 
 {
     "title":"Desenvolvimento Full Stack",
     "stack":"dfs"
-},
+}
 
 ====================================
 
@@ -64,4 +64,71 @@
     "stack":"dfs",    
     "modsigla":"introbd"
 }
+
+============= Aulas =============
+{
+    "title": "Introdução ao UX",
+    "tipo": "video",
+    "modsigla": "fundUX",
+    "time":"5:00",
+    "linkvideo":"https://www.youtube.com/embed/ejWo1KHRYTI",
+    "linkpdf": "none",
+    "pts": 10,
+    "idconclusao":"fundUX1"
+}
+
+{
+    "title": "Introdução ao UX 2",
+    "tipo": "video",
+    "modsigla": "fundUX",
+    "time":"2:00",
+    "linkvideo":"https://www.youtube.com/embed/K4MBd4sPi6w",
+    "linkpdf": "none",
+    "pts": 100,
+    "idconclusao":"fundUX2"
+}
+
+
+{
+    "title": "Variavel",
+    "tipo": "artigo",
+    "modsigla": "alg1",
+    "time":"2:00",
+    "linkvideo":""https://www.youtube.com/embed/8I4vPPSL-uQ"",
+    "linkpdf": "none",
+    "pts": 50,
+    "idconclusao":"alg11"
+}
+
+{
+    "title": "Constante",
+    "tipo": "video",
+    "modsigla": "alg1",
+    "time":"2:00",
+    "linkvideo":""https://www.youtube.com/embed/8I4vPPSL-uQ"",
+    "linkpdf": "none",
+    "pts": 50,
+    "idconclusao":"alg12"
+}
+
+
+======== User p/ Login =======
+{
+    "firstName": "filipe",
+    "lastName": "davi",
+    "email": "davi@gmail.com",
+    "password": "filipe123",
+}
+
+{
+    "firstName": "Elton",
+    "lastName": "Soares",
+    "email": "elton@gmail.com",
+    "password": "123"
+}
+
+
+==================================================================
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/8I4vPPSL-uQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 

@@ -34,6 +34,11 @@ module.exports = (sequelize) => {
             type: DataTypes.INTEGER,
             allowNull: false,
         },
+        idconclusao: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            unique: true,
+        },
     }, {
         sequelize,
         modelName: "Lesson"

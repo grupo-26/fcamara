@@ -7,39 +7,34 @@ module.exports = (sequelize) => {
   User.init({
     firstName: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: true
     },
     lastName: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: true
     },
     email: {
       type: DataTypes.STRING,
       allowNull: false,
-      unique: true
+      unique: false
     },
     password: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    isAdmin: {
-      type: DataTypes.BOOLEAN,
-      allowNull: false,
-    },
-    level: {
+    pontosgeral: {
       type: DataTypes.INTEGER,
       allowNull: false
     },
-    experience: {
+    progcurso1: {
       type: DataTypes.FLOAT,
       allowNull: false
     },
-    badges: {
-      type: DataTypes.ARRAY(DataTypes.STRING),
-      allowNull: true,
-      unique: false
+    progcurso2: {
+      type: DataTypes.FLOAT,
+      allowNull: false
     },
-    courses: {
+    aulascompletas: {
       type: DataTypes.ARRAY(DataTypes.STRING),
       allowNull: true,
       unique: false

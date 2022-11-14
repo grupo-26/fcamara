@@ -15,17 +15,17 @@ exports.register = async (req, res) => {
     });
   }
 
-  const hashedPassword = await bcrypt.hash(password, 12);
+  //const hashedPassword = await bcrypt.hash(password, 12);
 
   // Criar usuário
   const user = {
     firstName: firstName,
     lastName: lastName,
     email: email,
-    password: hashedPassword,
-    isAdmin: false,
-    experience: 0,
-    level: 1
+    password: password,
+    pontosgeral: 0,
+    progcurso1: 0,
+    progcurso2: 0,
   }
 
   // Salvar usuário no BD 
@@ -39,6 +39,7 @@ exports.register = async (req, res) => {
       });
     });
 };
+
 
 exports.login = (req, res) => {
   const { email, password } = req.body;
@@ -60,6 +61,44 @@ exports.login = (req, res) => {
       res.status(500).send({
         message: err.message || "Email/Senha Inválidos"
       })
+    });
+};
+
+
+exports.findOne = (req, res) => {
+  const id = req.params.id;
+
+  User.findByPk(id)
+    .then(data => {
+      if (data) {
+        res.send(data);
+      } else {
+        res.status(404).send({
+          message: `Cannot find with id=${id}.`
+        });
+      }
+    })
+    .catch((err) => {
+      res.status(500).send({
+        message: "Error retrieving with id=" + id
+      });
+    });
+};
+
+
+// Encontra todos os cursos no BD
+exports.findAll = (req, res) => {
+  const email = req.body.email;
+  let condition = email ? { email: { [Op.ilike]: `%${email}` } } : null;
+
+  User.findAll({ where: condition })
+    .then((data) => {
+      res.send(data);
+    })
+    .catch((err) => {
+      res.status(500).send({
+        message: err.message || "Algum erro ocorreu ao pesquisar os Users"
+      });
     });
 };
 

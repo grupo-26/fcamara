@@ -7,7 +7,8 @@ module.exports = (app) => {
   router.post("/", cors(), users.register);
   router.post("/login", cors(), users.login);
   router.get("/", cors(), users.findAll);
-  router.get("/", cors(), users.findOne);
+  router.get("/:id", cors(), users.findOne);
+  router.put("/:id", cors(), users.update)
 
 
   app.use("/user", router);
